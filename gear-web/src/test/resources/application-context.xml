@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 引用shiro配置 -->
+    <!--<import resource="shiro-content.xml"/>-->
+
+    <import resource="springmvc-content.xml"/>
+
+    <!-- properties文件属性扫描加载 -->
+    <bean id="env"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <value>classpath:/config/*.properties</value>
+        </property>
+        <property name="fileEncoding" value="utf-8" />
+    </bean>
+
+    <!-- 自动扫描web包 ,将带有注解的类 纳入spring容器管理 -->
+    <context:component-scan base-package="com.code.java.**">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!-- 支持@Autowired -->
+    <context:annotation-config/>
+
+    <!-- 开启注解事务 只对当前配置文件有效 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="${jdbcUrl}" />
+        <property name="username" value="${username}"></property>
+        <property name="password" value="${password}"></property>
+        <!-- 数据库连接池保持的最小连接数 -->
+        <property name="minIdle" value="5" />
+        <!-- 数据库连接池保持的最大连接数 -->
+        <property name="maxIdle" value="30" />
+        <!--
+            当数据库连接因为某种原因断掉之后，再重新从连接池中拿另外一个连接时实际上这个连接可能
+            已经无效，所以为了确保所拿到的连接全都有效需要在获取连接，返回连接以及连接空闲时进行
+            有效性验证 下面3个设置为ture时进行验证，默认为false
+         -->
+        <!-- 取得连接时是否进行有效性验证 -->
+        <property name="testOnBorrow" value="true" />
+        <!-- 返回连接时是否进行有效性验证 -->
+        <property name="testOnReturn" value="true" />
+        <!-- 连接空闲时是否进行有效性验证 -->
+        <property name="testWhileIdle" value="true" />
+        <!-- 数据库连接测试sql -->
+        <property name="validationQuery" value="${selectTestSql}" />
+    </bean>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" lazy-init="false">
+        <!-- 注入datasource，给sessionfactoryBean内setdatasource提供数据源 -->
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+        <!-- //加载实体类的映射文件位置及名称 -->
+        <property name="mappingLocations" value="classpath:com/code/java/entity/*.hbm.xml"/>
+    </bean>
+
+    <!-- 配置Spring声明式事务 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+</beans>

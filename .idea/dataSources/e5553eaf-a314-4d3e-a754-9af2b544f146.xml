@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="gear@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="gear">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="csms"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="rmps"/>
+    <schema id="8" parent="1" name="sanbao_ccsdb"/>
+    <schema id="9" parent="1" name="sys"/>
+    <table id="10" parent="2" name="gear_role">
+      <Comment>???</Comment>
+    </table>
+    <table id="11" parent="2" name="gear_role_res">
+      <Comment>?????</Comment>
+    </table>
+    <table id="12" parent="2" name="gear_user">
+      <Comment>用户表</Comment>
+    </table>
+    <column id="13" parent="10" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="10" name="ROLE_ID">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="15" parent="10" name="ROLE_NAME">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="16" parent="10" name="CREATE_USER">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="17" parent="10" name="CREATE_TIME">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="18" parent="10" name="Column_6">
+      <Position>6</Position>
+      <DataType>char(10)|0</DataType>
+    </column>
+    <key id="19" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="20" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="11" name="USER_ID">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="22" parent="11" name="ROLE_SETS">
+      <Position>3</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="23" parent="11" name="CREATE_USER">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="24" parent="11" name="CREATE_TIME">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="25" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="12" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="27" parent="12" name="USER_ID">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="28" parent="12" name="NAME">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="12" name="PASSWORD">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="12" name="STATUS">
+      <Position>5</Position>
+      <Comment>0-???1-??</Comment>
+      <DataType>char(1)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="31" parent="12" name="CREATE_TIME">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="32" parent="12" name="LST_UPD_TIME">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="33" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

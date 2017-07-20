@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <description>spring基础配置</description>
+
+    <!-- properties文件属性扫描加载 -->
+    <bean id="env"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:/config/*.properties"/>
+        <property name="fileEncoding" value="utf-8" />
+    </bean>
+
+    <!-- 自动扫描web包 ,将带有注解的类 纳入spring容器管理 -->
+    <context:component-scan base-package="com.code.java.**">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 支持@Autowired -->
+    <context:annotation-config/>
+
+    <!-- 开启注解事务 只对当前配置文件有效 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- hibernate配置 -->
+    <import resource="hibernate-content.xml"/>
+    <!-- 引用shiro配置 -->
+    <import resource="shiro-content.xml"/>
+    <!-- 引用spring mvc配置 -->
+    <import resource="springmvc-content.xml"/>
+    <!-- cahceh配置 -->
+<!--    <import resource="redis-content.xml"/>-->
+
+
+</beans>

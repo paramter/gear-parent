@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/gear-cache/gear-cache.iml" filepath="$PROJECT_DIR$/gear-cache/gear-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gear-facility/gear-facility.iml" filepath="$PROJECT_DIR$/gear-facility/gear-facility.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gear-param/gear-param.iml" filepath="$PROJECT_DIR$/gear-param/gear-param.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gear-parent.iml" filepath="$PROJECT_DIR$/gear-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gear-rpc/gear-rpc.iml" filepath="$PROJECT_DIR$/gear-rpc/gear-rpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gear-web/gear-web.iml" filepath="$PROJECT_DIR$/gear-web/gear-web.iml" />
+    </modules>
+  </component>
+</project>

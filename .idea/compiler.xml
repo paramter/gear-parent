@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gear-cache" />
+        <module name="gear-facility" />
+        <module name="gear-param" />
+        <module name="gear-rpc" />
+        <module name="gear-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gear-cache" target="1.5" />
+      <module name="gear-facility" target="1.5" />
+      <module name="gear-param" target="1.5" />
+      <module name="gear-parent" target="1.5" />
+      <module name="gear-rpc" target="1.5" />
+      <module name="gear-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

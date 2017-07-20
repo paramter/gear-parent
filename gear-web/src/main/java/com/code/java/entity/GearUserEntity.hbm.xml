@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.code.java.entity.GearUserEntity" table="gear_user" schema="gear">
+        <id name="id" column="ID"/>
+        <property name="userId" column="USER_ID"/>
+        <property name="name" column="NAME"/>
+        <property name="password" column="PASSWORD"/>
+        <property name="status" column="STATUS"/>
+        <property name="createTime" column="CREATE_TIME"/>
+        <property name="lstUpdTime" column="LST_UPD_TIME"/>
+    </class>
+</hibernate-mapping>
